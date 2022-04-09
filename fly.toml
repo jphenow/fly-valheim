@@ -1,0 +1,64 @@
+# fly.toml file generated for jphenow-valheim-test on 2022-04-09T09:44:17-05:00
+
+app = "fly-valheim"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+BACKUPS = "false"
+SERVER_NAME = "fly-valheim"
+SERVER_PASS = "FlyValheim"
+SERVER_PORT = "3456"
+WORLD_NAME = "FlyValheim"
+
+[experimental]
+allowed_public_ports = []
+auto_rollback = true
+
+[mounts]
+destination = "/volume"
+source = "flyvalheim"
+
+[[services]]
+internal_port = 2456
+protocol = "udp"
+
+[[services.ports]]
+port = 2456
+
+[[services]]
+internal_port = 2457
+protocol = "udp"
+
+[[services.ports]]
+port = 2457
+
+[[services]]
+internal_port = 2458
+protocol = "udp"
+
+[[services.ports]]
+port = 2458
+
+[[services]]
+internal_port = 2456
+protocol = "tcp"
+
+[[services.ports]]
+port = 2456
+
+[[services]]
+internal_port = 2457
+protocol = "tcp"
+
+[[services.ports]]
+port = 2457
+
+[[services]]
+internal_port = 2458
+protocol = "tcp"
+
+[[services.ports]]
+port = 2458
